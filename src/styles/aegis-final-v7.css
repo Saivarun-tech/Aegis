@@ -1,0 +1,94 @@
+/* Aegis V7: scoped legal-page refinement and destination highlighting. */
+/* Respect the site's left margin; avoid the previous narrow centered legal column. */
+.legal-page.content-page {
+  padding-top: clamp(58px, 7vw, 100px);
+  padding-bottom: clamp(80px, 9vw, 140px);
+}
+.legal-page .legal-layout {
+  width: 100%;
+  max-width: 1580px;
+  margin: 0;
+}
+.legal-page .legal-intro {
+  max-width: 1030px;
+}
+.legal-page .section-label {
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: .02em;
+}
+.legal-page h1 {
+  font-size: clamp(42px, 5vw, 67px);
+  font-weight: 530;
+  letter-spacing: -.04em;
+  line-height: 1.12;
+  text-transform: none;
+}
+.legal-page .page-lead {
+  font-size: clamp(16px, 1.45vw, 20px);
+  line-height: 1.72;
+  max-width: 890px;
+}
+.legal-draft {
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: #aaa6a3;
+}
+.legal-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(36px, 5vw, 76px) clamp(36px, 6vw, 112px);
+  margin-top: clamp(64px, 7vw, 100px);
+  align-items: start;
+}
+.legal-section { min-width: 0; padding: 0; border: 0; }
+.legal-section h2 {
+  margin: 0 0 14px;
+  font-size: clamp(21px, 1.9vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  font-weight: 550;
+  color: #f5f3ef;
+  text-transform: none;
+}
+.legal-section p {
+  margin: 0;
+  max-width: 64ch;
+  font-size: clamp(15px, 1.03vw, 17px);
+  line-height: 1.85;
+  color: #b4b0af;
+  overflow-wrap: anywhere;
+}
+.legal-page .legal-section a {
+  color: #eadbd0;
+  text-decoration: none;
+  border: 0;
+  transition: color 160ms ease;
+}
+.legal-page .legal-section a:hover,
+.legal-page .legal-section a:focus-visible { color: #ff8d8d; text-decoration: none; }
+
+/* Arriving from the home diagram makes the Tools destination identifiable. */
+.technology-tool-section:target {
+  border-radius: 14px;
+  background: linear-gradient(90deg, rgba(240,117,117,.065), transparent 65%);
+  outline: 1px solid rgba(240,117,117,.24);
+  outline-offset: 12px;
+}
+/* A quiet accent on Let's connect after using the diagram's Tools link. */
+body:has(#tools:target) .site-header .desktop-contact,
+body:has(#tools:target) .mobile-contact {
+  border-color: #bd7777;
+  color: #f6eded;
+  background: rgba(240,117,117,.07);
+}
+
+@media (max-width: 760px) {
+  .legal-page.content-page { padding: 64px 23px 90px; }
+  .legal-sections { grid-template-columns: 1fr; gap: 38px; margin-top: 55px; }
+  .legal-page .page-lead { line-height: 1.65; }
+  .technology-tool-section:target { outline-offset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .legal-page .legal-section a { transition: none; }
+}

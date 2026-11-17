@@ -1,0 +1,146 @@
+/* AEGIS V4: smaller, clearer typography and intentionally line-free Agent page.
+   Imported after globals.css to avoid replacing unrelated site styles. */
+
+body {
+  font-family: var(--font-aegis-sans), "Geist", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* No active-tab underline, but preserve keyboard-accessible focus styling. */
+.site-header .nav-link--active::after,
+.site-header .nav-link--active::before {
+  content: none;
+  display: none;
+}
+.site-header .nav-link {
+  font-size: 15px;
+  font-weight: 440;
+  letter-spacing: -.012em;
+  text-decoration: none;
+}
+.site-header .nav-link--active {
+  color: #f5f3ef;
+  font-weight: 600;
+}
+.site-header .nav-link:hover {
+  text-decoration: none;
+}
+.site-header .brand {
+  letter-spacing: .18em;
+  font-weight: 650;
+}
+.site-header .contact-button {
+  font-weight: 540;
+}
+a:focus-visible, summary:focus-visible, button:focus-visible {
+  outline: 2px solid #c9c2ba;
+  outline-offset: 4px;
+  border-radius: 7px;
+}
+
+/* Calm, confident headline instead of oversized heavy display lettering. */
+.agent-page .agent-intro {
+  align-items: center;
+  padding-bottom: clamp(78px, 9vw, 125px);
+}
+.agent-page .agent-intro__story h1 {
+  font-size: clamp(43px, 4.7vw, 68px);
+  font-weight: 565;
+  line-height: 1.13;
+  letter-spacing: -.045em;
+  max-width: 720px;
+}
+.agent-page .agent-intro__story .page-lead {
+  color: #aca9a8;
+  max-width: 545px;
+  margin-top: 26px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.68;
+}
+.agent-page .section-label {
+  letter-spacing: .14em;
+  font-weight: 570;
+  color: #aaa39b;
+}
+
+/* Content is separated by space, not decorative horizontal rules. */
+.agent-page .agent-help,
+.agent-page .agent-guidelines {
+  border: 0;
+}
+.agent-page .agent-help {
+  padding-top: 20px;
+}
+.agent-page .agent-help__heading {
+  margin-bottom: 34px;
+}
+.agent-page .agent-help__heading h2,
+.agent-page .agent-guidelines__intro h2 {
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 560;
+  line-height: 1.18;
+  letter-spacing: -.038em;
+}
+.agent-page .agent-point {
+  padding-block: clamp(21px, 2.6vw, 32px);
+  border: 0;
+}
+.agent-page .agent-point:last-child {
+  border: 0;
+}
+.agent-page .agent-point__number {
+  color: #8f8a87;
+}
+.agent-page .agent-point h3 {
+  font-size: clamp(21px, 1.85vw, 27px);
+  font-weight: 550;
+  letter-spacing: -.028em;
+}
+.agent-page .agent-point p {
+  color: #aaa7a5;
+  line-height: 1.67;
+}
+.agent-page .agent-help__note {
+  max-width: 640px;
+  margin-top: 26px;
+  color: #a09c9b;
+}
+.agent-page .agent-guidelines {
+  margin-top: clamp(72px, 8vw, 120px);
+  padding-top: 16px;
+}
+.agent-page .agent-guidelines__list li,
+.agent-page .agent-guidelines__list li:last-child {
+  border: 0;
+  padding-block: 13px;
+}
+.agent-page .agent-guidelines__intro p:last-child {
+  line-height: 1.7;
+}
+.agent-page .download-button {
+  border-color: #36383e;
+  background: #17191d;
+  transition: background-color 170ms ease, border-color 170ms ease;
+}
+.agent-page .download-button--ready:hover {
+  border-color: #ded6cd;
+}
+
+@media (max-width: 760px) {
+  .agent-page .agent-intro__story h1 {
+    font-size: clamp(38px, 10vw, 54px);
+    line-height: 1.13;
+  }
+  .agent-page .agent-help {
+    padding-top: 0;
+  }
+  .agent-page .agent-point {
+    padding-block: 25px;
+  }
+  .agent-page .agent-guidelines {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-page .download-button { transition: none; }
+}

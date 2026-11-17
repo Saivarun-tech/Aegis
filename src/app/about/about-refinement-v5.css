@@ -1,0 +1,55 @@
+/* AEGIS V5 — About page only. No decorative horizontal rules or link underlines.
+   Preserve the remaining About sections, page layout, navbar and all other routes. */
+.about-page .about-intro {
+  max-width: 880px;
+  margin-bottom: clamp(72px, 8vw, 112px);
+}
+.about-page .about-intro h1 {
+  font-size: clamp(43px, 5.1vw, 72px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  font-weight: 550;
+  max-width: 850px;
+  text-wrap: balance;
+}
+.about-page .about-intro .page-lead {
+  max-width: 735px;
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.75;
+  margin-top: 27px;
+}
+.about-page .about-founder {
+  color: #a9a49f;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 26px 0 0;
+}
+.about-page .about-founder strong {
+  color: #f5f3ef;
+  font-weight: 550;
+}
+.about-page .two-column-section + .two-column-section {
+  margin-top: clamp(75px, 8vw, 115px);
+}
+.about-page .section-rule { display: none; }
+.about-page .prose-copy a,
+.about-page a.text-link {
+  text-decoration: none;
+  text-decoration-line: none;
+  border-bottom: 0;
+}
+.about-page .prose-copy a:hover,
+.about-page a.text-link:hover {
+  color: #ffffff;
+}
+/* Keep focus indicators for keyboard navigation even without underlines. */
+.about-page a:focus-visible {
+  outline: 2px solid #c9c2ba;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+@media (max-width: 760px) {
+  .about-page .about-intro { margin-bottom: 68px; }
+  .about-page .two-column-section + .two-column-section { margin-top: 70px; }
+  .about-page .about-intro h1 { font-size: clamp(40px, 10vw, 60px); }
+}

@@ -1,0 +1,33 @@
+import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google";
+import type { ReactNode } from "react";
+import { SiteHeader } from "@/components/layout/site-header";
+import { CursorAura } from "@/components/vfx/custom/cursor-aura";
+import "./globals.css";
+
+const aegisSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-aegis-sans",
+});
+
+export const metadata: Metadata = {
+  title: { default: "AEGIS — Building an Intelligent Agent", template: "%s | AEGIS" },
+  description: "AEGIS is developing an intelligent agent platform, with an independently built language model as one part of the foundation.",
+  robots: { index: true, follow: true },
+};
+
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <html lang="en">
+      <body className={aegisSans.variable}>
+        <div className="site-shell">
+          <a className="skip-link" href="#main-content">Skip to content</a>
+          <SiteHeader />
+          {children}
+          <CursorAura />
+        </div>
+      </body>
+    </html>
+  );
+}

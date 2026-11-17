@@ -1,0 +1,130 @@
+/* Aegis V6 — focused design refinements. Imported last, no JS required. */
+/* Wordmark is the single intentional all-caps brand treatment. */
+.site-header .brand,
+.site-footer__brand {
+  font-family: Arial, Helvetica, ui-sans-serif, sans-serif;
+  font-weight: 650;
+  letter-spacing: .16em;
+  font-size: clamp(25px, 2vw, 31px);
+}
+/* Bigger navigation labels; red only while hovered/focused. */
+.site-header .nav-link {
+  font-size: clamp(17px, 1.13vw, 19px);
+  font-weight: 470;
+  letter-spacing: -.012em;
+  transition: color 180ms ease;
+}
+.site-header .nav-link--active { font-weight: 640; }
+.site-header .nav-link::after,
+.site-header .nav-link--active::after { content: none; display: none; }
+.site-header .nav-link::before,
+.site-header .nav-link--active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  height: 2px;
+  background: #f07575;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.site-header .nav-link:hover,
+.site-header .nav-link:focus-visible { color: #f07575; }
+.site-header .nav-link:hover::before,
+.site-header .nav-link:focus-visible::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+.mobile-nav__panel a:hover,
+.mobile-nav__panel a:focus-visible { color: #f07575; }
+
+/* Title Case headings and softer, readable type rhythm. No forced uppercase labels. */
+.section-label, .eyebrow, .card-index,
+.site-footer__contact > span {
+  text-transform: none;
+  letter-spacing: .035em;
+  font-weight: 550;
+}
+.content-page h1,
+.hero-stage__copy h1 { font-weight: 540; letter-spacing: -.042em; }
+.technology-page h1 { max-width: 1010px; }
+.technology-page .technology-intro { max-width: 990px; scroll-margin-top: 120px; }
+.technology-page .technology-intro h1 {
+  font-size: clamp(42px, 5.1vw, 74px);
+  text-wrap: balance;
+}
+.technology-status {
+  margin: 24px 0 0;
+  color: #b7a9a3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.technology-tool-section { margin-top: clamp(75px, 9vw, 120px); scroll-margin-top: 120px; }
+.technology-tool-section .section-heading { align-items: baseline; }
+.technology-feature-grid { gap: 16px; }
+.technology-feature-grid .tech-card { min-height: 208px; scroll-margin-top: 120px; }
+.technology-feature-grid .card-index { color: #b9b2ac; font-size: 12px; margin-bottom: 23px; }
+.technology-feature-grid h3 { font-size: clamp(23px, 1.8vw, 28px); }
+.technology-feature-grid p { max-width: 460px; }
+.technology-closing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 8vw, 125px);
+  margin-top: clamp(82px, 11vw, 135px);
+  padding-bottom: 24px;
+}
+.technology-closing h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 550; letter-spacing: -.04em; line-height: 1.2; margin: 0; }
+.technology-closing p:not(.section-label) { color: #aca8a7; font-size: 16px; line-height: 1.8; margin: 0 0 24px; }
+.technology-closing a { color: #eee8e1; font-weight: 560; }
+.technology-closing a:hover { color: #f07575; }
+
+/* About intro: founder credit instead of a second oversized tagline. */
+.about-page .about-intro h1 { font-size: clamp(48px, 5.2vw, 76px); max-width: 900px; }
+.about-page .about-founder--prominent {
+  margin: 18px 0 4px;
+  font-size: clamp(15px, 1.3vw, 18px);
+  color: #cfcbc8;
+  letter-spacing: .006em;
+}
+.about-page .about-intro .page-lead { margin-top: 21px; }
+
+/* The connected Aegis nodes float only on hover or focus — no continuous animation. */
+.system-panel__vector { display: block; width: 100%; height: 100%; }
+.system-node { cursor: pointer; outline: none; }
+.system-node__group {
+  transform: translateY(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 220ms cubic-bezier(.2,.7,.2,1);
+}
+.system-node__chip { transition: fill 180ms ease, stroke 180ms ease; }
+.system-node__label { transition: fill 180ms ease; }
+@media (hover:hover) and (prefers-reduced-motion: no-preference) {
+  .system-node:hover .system-node__group { transform: translateY(-7px); }
+}
+.system-node:hover .system-node__chip,
+.system-node:focus .system-node__chip { fill: #252227; stroke: #dfcabb; }
+.system-node:hover .system-node__label,
+.system-node:focus .system-node__label { fill: #fff; }
+.system-node:focus-visible .system-node__chip { stroke: #f07575; stroke-width: 3px; }
+
+/* Responsive layout and readable mobile navigation. */
+@media (max-width: 1050px) and (min-width: 761px) {
+  .site-header .nav-link { font-size: 16px; }
+  .desktop-nav { gap: clamp(13px, 2.2vw, 27px); }
+}
+@media (max-width: 760px) {
+  .technology-tool-section { margin-top: 66px; }
+  .technology-closing { display: block; margin-top: 78px; }
+  .technology-closing > div + div { margin-top: 23px; }
+  .technology-feature-grid .tech-card { min-height: 0; }
+  .site-header .brand { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .system-node__group, .system-node__chip, .system-node__label,
+  .site-header .nav-link, .site-header .nav-link::before { transition: none !important; }
+}
