@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aegis Forge
 
-## Getting Started
+**Building an AI agent designed to work with you.**
 
-First, run the development server:
+Aegis Forge is an independent AI engineering project founded by **Vishnu Sai Varun**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Our vision is to create a practical intelligent agent that helps people turn questions, ideas, and everyday tasks into meaningful outcomes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About Aegis
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Aegis is being developed around three connected foundations:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Aegis Core** — An independently implemented transformer-based language model.
+- **Aegis Forge** — Agent infrastructure for future tools, workflows, and software interaction.
+- **Aegis Platform** — The planned user-facing experience across web, desktop, and mobile.
 
-## Learn More
+The language model is part of the foundation. Our long-term goal is a capable, dependable AI agent.
 
-To learn more about Next.js, take a look at the following resources:
+## Product Direction
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Our initial development focuses on natural communication, learning assistance, foundational programming, and practical productivity workflows.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Planned areas include Python and frontend development assistance, PowerPoint, PDF, Excel, and basic reporting workflows.
 
-## Deploy on Vercel
+More advanced automation, voice interaction, and cybersecurity-related capabilities are longer-term goals.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Aegis remains under development.** Planned capabilities are not claims of released functionality.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Official Website
+
+This repository contains the public website for Aegis Forge.
+
+**Technology:** Next.js, React, TypeScript, and Tailwind CSS.
+
+The website introduces the project, explains its technology and goals, provides contact information, and will eventually host official Android and Windows download links.
+
+## Local Development
+
+Install Node.js and npm, then run:
+
+`npm install`
+
+`npm run dev`
+
+Open `http://localhost:3000`.
+
+To verify a production build, run:
+
+`npm run build`
+
+## Contact
+
+**Official email:** connect.aegisforge@gmail.com
+
+**Founder:** Vishnu Sai Varun
+
+---
+
+Aegis Forge — Building toward intelligence that can assist, create, and act.

@@ -13,8 +13,8 @@ export function HeroStage() {
           From a conversation to a useful next step, the goal is simple — technology that works with you.
         </p>
         <div className="hero-stage__actions">
-          <Link className="button button--primary" href="/agent">Explore the Agent <span aria-hidden="true">↗</span></Link>
-          <Link className="button button--outline" href="/technology#tools">Explore the Tools <span aria-hidden="true">→</span></Link>
+          <Link className="button button--primary" href="/agent">Explore the Agent</Link>
+          <Link className="button button--outline" href="/technology#tools">Explore the Tools</Link>
         </div>
       </div>
       <ConnectedSystems />

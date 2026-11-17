@@ -1,4 +1,4 @@
-/* Aegis V7: scoped legal-page refinement and destination highlighting. */
+/* Aegis V8: scoped legal-page refinement and quiet Tools navigation. */
 /* Respect the site's left margin; avoid the previous narrow centered legal column. */
 .legal-page.content-page {
   padding-top: clamp(58px, 7vw, 100px);
@@ -68,26 +68,14 @@
 .legal-page .legal-section a:hover,
 .legal-page .legal-section a:focus-visible { color: #ff8d8d; text-decoration: none; }
 
-/* Arriving from the home diagram makes the Tools destination identifiable. */
-.technology-tool-section:target {
-  border-radius: 14px;
-  background: linear-gradient(90deg, rgba(240,117,117,.065), transparent 65%);
-  outline: 1px solid rgba(240,117,117,.24);
-  outline-offset: 12px;
-}
-/* A quiet accent on Let's connect after using the diagram's Tools link. */
-body:has(#tools:target) .site-header .desktop-contact,
-body:has(#tools:target) .mobile-contact {
-  border-color: #bd7777;
-  color: #f6eded;
-  background: rgba(240,117,117,.07);
-}
+/* V8: the Tools anchor scrolls normally, with no route-driven color highlighting. */
+.system-node--static { cursor: default; }
+.system-node--link { cursor: pointer; }
 
 @media (max-width: 760px) {
   .legal-page.content-page { padding: 64px 23px 90px; }
   .legal-sections { grid-template-columns: 1fr; gap: 38px; margin-top: 55px; }
   .legal-page .page-lead { line-height: 1.65; }
-  .technology-tool-section:target { outline-offset: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .legal-page .legal-section a { transition: none; }

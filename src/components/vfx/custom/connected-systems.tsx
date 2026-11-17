@@ -4,11 +4,11 @@
  * This is an illustrative system map, not a live representation of model operations.
  */
 const symbols = [
-  { label: "Model", x: 337, y: 74, width: 146, kind: "model", href: "/technology#approach" },
-  { label: "Code", x: 69, y: 204, width: 171, kind: "code", href: "/technology#coding" },
-  { label: "Compute", x: 582, y: 204, width: 169, kind: "compute", href: "/technology#approach" },
-  { label: "Data", x: 69, y: 388, width: 171, kind: "data", href: "/technology#data" },
-  { label: "Network", x: 582, y: 388, width: 169, kind: "network", href: "/technology#approach" },
+  { label: "Model", x: 337, y: 74, width: 146, kind: "model", href: null },
+  { label: "Code", x: 69, y: 204, width: 171, kind: "code", href: null },
+  { label: "Compute", x: 582, y: 204, width: 169, kind: "compute", href: null },
+  { label: "Data", x: 69, y: 388, width: 171, kind: "data", href: null },
+  { label: "Network", x: 582, y: 388, width: 169, kind: "network", href: null },
   { label: "Tools", x: 337, y: 520, width: 146, kind: "tools", href: "/technology#tools" },
 ] as const;
 
@@ -34,7 +34,7 @@ function NodeIcon({ kind }: { kind: SymbolKind }) {
 export function ConnectedSystems() {
   return (
     <figure className="system-panel">
-      <svg className="system-panel__vector" viewBox="0 0 820 652" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Aegis connected to Model, Code, Compute, Data, Network and Tools. Select a node to explore the first version.">
+      <svg className="system-panel__vector" viewBox="0 0 820 652" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Illustration of Aegis connected to model, code, compute, data, network and tools. Only Tools opens the Technology page.">
         <defs>
           <radialGradient id="aegis-v6-warmth"><stop stopColor="#b7a797" stopOpacity=".11"/><stop offset=".55" stopColor="#b7a797" stopOpacity=".025"/><stop offset="1" stopColor="#b7a797" stopOpacity="0"/></radialGradient>
           <linearGradient id="aegis-v6-platinum" x1="410" y1="225" x2="410" y2="416" gradientUnits="userSpaceOnUse"><stop stopColor="#fff"/><stop offset=".65" stopColor="#faf3ea"/><stop offset="1" stopColor="#e4d8ce"/></linearGradient>
@@ -52,17 +52,27 @@ export function ConnectedSystems() {
           <path d="M393 137 L389 139 L345 214 L256 373 L209 452 L209 456 L248 456 L291 388 L348 376 L412 350 L317 350 L314 348 L385 223 L393 213 L535 455 L576 455 Z" fill="#f1ddc7" opacity=".85" filter="url(#aegis-v6-glow)" />
           <path d="M393 137 L389 139 L345 214 L256 373 L209 452 L209 456 L248 456 L291 388 L348 376 L412 350 L317 350 L314 348 L385 223 L393 213 L535 455 L576 455 Z" fill="url(#aegis-v6-platinum)" />
         </g>
-        {symbols.map(({ label, x, y, width, kind, href }) => (
-          <a className="system-node" href={href} key={label} aria-label={`Explore ${label.toLowerCase()} in Aegis technology`}>
+        {symbols.map(({ label, x, y, width, kind, href }) => {
+          const artwork = (
             <g className="system-node__group">
-              <rect className="system-node__chip" x={x} y={y} width={width} height="58" rx="15" fill="#17181a" fillOpacity=".96" stroke="#8c8781" strokeOpacity=".58"/>
-              <g className="system-node__icon" transform={`translate(${x+23} ${y+29})`} color="#e8e0d8"><NodeIcon kind={kind}/></g>
-              <text className="system-node__label" x={x+71} y={y+36} fill="#ede8e1" fontSize="18" fontFamily="Arial, sans-serif" fontWeight="400">{label.toLowerCase()}</text>
+              <rect className="system-node__chip" x={x} y={y} width={width} height="58" rx="15" fill="#17181a" fillOpacity=".96" stroke="#8c8781" strokeOpacity=".58" />
+              <g className="system-node__icon" transform={`translate(${x + 23} ${y + 29})`} color="#e8e0d8"><NodeIcon kind={kind} /></g>
+              <text className="system-node__label" x={x + 71} y={y + 36} fill="#ede8e1" fontSize="18" fontFamily="Arial, sans-serif" fontWeight="400">{label.toLowerCase()}</text>
             </g>
-          </a>
-        ))}
+          );
+          // Only Tools is an interactive link. All other nodes are visual only.
+          return href ? (
+            <a className="system-node system-node--link" href={href} key={label} aria-label="Explore tools in Aegis Technology">
+              {artwork}
+            </a>
+          ) : (
+            <g className="system-node system-node--static" key={label}>
+              {artwork}
+            </g>
+          );
+        })}
       </svg>
-      <figcaption className="sr-only">Illustrative Aegis systems map; the labeled nodes link to planned version-one tools.</figcaption>
+      <figcaption className="sr-only">Illustrative Aegis systems map. Only the Tools node links to the Technology page; other nodes are decorative.</figcaption>
     </figure>
   );
 }

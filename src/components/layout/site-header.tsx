@@ -21,7 +21,7 @@ export function SiteHeader() {
             >{label}</Link>
           ))}
         </nav>
-        <a href={contactHref} className="contact-button desktop-contact">Let&apos;s connect <span aria-hidden="true">↗</span></a>
+        <a href={contactHref} className="contact-button desktop-contact">Let&apos;s connect</a>
         <details key={pathname} className="mobile-nav">
           <summary aria-label="Toggle navigation menu">
             <span className="menu-bars" aria-hidden="true"><span /><span /><span /></span>
@@ -31,7 +31,7 @@ export function SiteHeader() {
             {navigation.map(({ label, href }) => (
               <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined}>{label}</Link>
             ))}
-            <a href={contactHref} className="mobile-contact">Let&apos;s connect ↗</a>
+            <a href={contactHref} className="mobile-contact">Let&apos;s connect</a>
           </nav>
         </details>
       </div>
